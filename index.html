@@ -1,421 +1,680 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chandrakanth Narravula - Hands-on Technical Lead & Solutions Architect specializing in Dynamics 365, Power Platform, Azure integrations, and Agentic AI development.">
-    <meta name="keywords" content="Chandrakanth Narravula, Dynamics 365, Power Platform, Solutions Architect, Technical Lead, Power Apps, Power Automate, C#, .NET, JavaScript, Azure, Copilot Studio, Agentic AI, AI Agents">
-    <meta name="author" content="Chandrakanth Narravula">
-    
-    <!-- Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Chandrakanth Narravula | Technical Lead & Solutions Architect">
-    <meta property="og:description" content="7+ years of experience delivering enterprise D365, Power Platform, and Agentic AI-driven transformations.">
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/placeholder">
-    
-    <title>Chandrakanth Narravula | Hands-on Technical Lead & Solutions Architect</title>
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Icons (FontAwesome CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chandrakanth Narravula — Technical Lead & Solutions Architect</title>
+<meta name="description" content="Chandrakanth Narravula — Hands-on Technical Lead & Solutions Architect specializing in Dynamics 365, Power Platform, Azure integrations, and Agentic AI development.">
+<meta property="og:title" content="Chandrakanth Narravula | Technical Lead & Solutions Architect">
+<meta property="og:description" content="7+ years delivering enterprise Dynamics 365, Power Platform, and Agentic AI-driven transformations.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12203A;
+    --ink-soft:#3E5164;
+    --paper:#F5F6F3;
+    --paper-dim:#EBEDE8;
+    --steel:#3E5C76;
+    --signal:#1F7A63;
+    --signal-soft:#E4F0EC;
+    --line:#D7DCDA;
+    --navy-deep:#0C1524;
+    --navy-mid:#16233A;
+    --on-dark:#E9ECEE;
+    --on-dark-soft:#9AA7B8;
+
+    --display:'Space Grotesk',sans-serif;
+    --body:'IBM Plex Sans',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+
+    --maxw:1120px;
+    --radius:2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  h1,h2,h3,h4{font-family:var(--display); margin:0; letter-spacing:-0.01em; color:var(--ink);}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--signal);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px; background:var(--signal);
+    display:inline-block;
+  }
+
+  :focus-visible{
+    outline:2px solid var(--signal);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,246,243,0.92);
+    backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px; max-width:var(--maxw); margin:0 auto;
+  }
+  .nav .mark{
+    font-family:var(--mono); font-size:14px; font-weight:500;
+    letter-spacing:0.02em;
+    text-decoration:none;
+  }
+  .nav .mark .dot{color:var(--signal);}
+  .nav ul{
+    list-style:none; display:flex; gap:28px; margin:0; padding:0;
+  }
+  .nav a{
+    text-decoration:none; font-size:14px; color:var(--ink-soft);
+    font-weight:500;
+    position:relative; padding:4px 0;
+  }
+  .nav a:hover{color:var(--ink);}
+  .nav a::after{
+    content:""; position:absolute; left:0; bottom:-2px;
+    width:0; height:1px; background:var(--signal);
+    transition:width .2s ease;
+  }
+  .nav a:hover::after{width:100%;}
+  .nav-toggle{display:none;}
+
+  @media (max-width: 760px){
+    .nav ul{
+      position:fixed; inset:60px 0 auto 0; background:var(--paper);
+      flex-direction:column; gap:0; border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden; transition:max-height .25s ease;
+    }
+    .nav ul.open{max-height:400px;}
+    .nav ul li{border-top:1px solid var(--line);}
+    .nav ul li a{display:block; padding:16px 28px;}
+    .nav-toggle{
+      display:block; background:none; border:1px solid var(--line);
+      width:38px; height:38px; cursor:pointer; font-family:var(--mono);
+      color:var(--ink);
+    }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:96px 0 88px;
+    background:
+      linear-gradient(var(--paper), var(--paper)) padding-box;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(to right, rgba(18,32,58,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(18,32,58,0.05) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:linear-gradient(to bottom, black, transparent 85%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative; display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center;}
+  @media (max-width:920px){ .hero-inner{grid-template-columns:1fr;} }
+
+  .role-line{
+    font-family:var(--mono); font-size:13px; color:var(--steel);
+    margin:22px 0 10px;
+  }
+  .hero h1{
+    font-size:clamp(34px, 5vw, 54px);
+    line-height:1.08;
+    max-width:12ch;
+  }
+  .hero p.lede{
+    margin-top:20px; max-width:52ch; color:var(--ink-soft); font-size:16.5px;
+  }
+  .hero-cta{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+
+  .btn{
+    font-family:var(--mono); font-size:13.5px; letter-spacing:0.02em;
+    padding:13px 22px; text-decoration:none; border-radius:var(--radius);
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn-primary{background:var(--ink); color:var(--paper);}
+  .btn-primary:hover{background:var(--signal); transform:translateY(-1px);}
+  .btn-ghost{border:1px solid var(--line); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink); transform:translateY(-1px);}
+
+  /* signature: system diagram */
+  .diagram{
+    font-family:var(--mono);
+    border:1px solid var(--line);
+    background:var(--navy-deep);
+    color:var(--on-dark);
+    padding:26px 22px 22px;
+    border-radius:var(--radius);
+    position:relative;
+  }
+  .diagram-label{
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--on-dark-soft); margin-bottom:18px; display:flex; justify-content:space-between;
+  }
+  .diagram-label .status{color:#4CD3A7;}
+  .flow{display:flex; flex-direction:column; gap:0;}
+  .node{
+    display:flex; align-items:center; gap:12px;
+    padding:10px 0; font-size:13px; position:relative;
+  }
+  .node .idx{color:var(--on-dark-soft); width:20px; flex-shrink:0;}
+  .node .box{
+    border:1px solid #2A3A54; padding:8px 12px; border-radius:2px;
+    flex:1; background:var(--navy-mid);
+  }
+  .node .box b{color:var(--on-dark); font-weight:500;}
+  .node .box span{display:block; color:var(--on-dark-soft); font-size:11.5px; margin-top:2px;}
+  .connector{
+    width:1px; height:16px; background:#2A3A54; margin-left:29px;
+    position:relative;
+  }
+  .connector::after{
+    content:""; position:absolute; left:-2px; top:0; width:5px; height:5px;
+    border-radius:50%; background:var(--signal);
+    animation:travel 3.2s linear infinite;
+  }
+  @keyframes travel{
+    0%{top:0; opacity:0;}
+    10%{opacity:1;}
+    90%{opacity:1;}
+    100%{top:100%; opacity:0;}
+  }
+
+  /* ---------- STATS ---------- */
+  .stats{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--paper-dim);
+  }
+  .stats-grid{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .stat{
+    padding:30px 28px; border-left:1px solid var(--line);
+  }
+  .stat:first-child{border-left:none;}
+  .stat b{font-family:var(--display); font-size:30px; display:block; color:var(--ink);}
+  .stat span{font-family:var(--mono); font-size:12px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em;}
+  @media (max-width:760px){
+    .stats-grid{grid-template-columns:1fr 1fr;}
+    .stat{border-left:none; border-top:1px solid var(--line);}
+  }
+
+  /* ---------- SECTION ---------- */
+  section{padding:96px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; margin-bottom:48px; flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(26px,3vw,34px); margin-top:14px;}
+  .section-head p{max-width:46ch; color:var(--ink-soft); margin:14px 0 0; font-size:15px;}
+
+  /* about */
+  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:64px;}
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{color:var(--ink-soft); margin:0 0 18px; font-size:15.5px;}
+  .about-grid strong{color:var(--ink); font-weight:600;}
+  .side-note{
+    border-left:2px solid var(--signal); padding:4px 0 4px 20px;
+    font-family:var(--mono); font-size:13px; color:var(--ink-soft);
+  }
+
+  /* skills */
+  .skills-filter{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:36px;}
+  .chip{
+    font-family:var(--mono); font-size:12.5px; padding:8px 14px;
+    border:1px solid var(--line); border-radius:20px; cursor:pointer;
+    background:transparent; color:var(--ink-soft);
+  }
+  .chip[aria-pressed="true"]{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  @media (max-width:860px){ .skills-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .skills-grid{grid-template-columns:1fr;} }
+  .skill-card{
+    background:var(--paper); padding:24px 22px; transition:background .15s ease;
+  }
+  .skill-card.hide{display:none;}
+  .skill-card .tag{
+    font-family:var(--mono); font-size:10.5px; text-transform:uppercase;
+    letter-spacing:0.06em; color:var(--signal); margin-bottom:10px; display:block;
+  }
+  .skill-card h4{font-size:16px; margin-bottom:8px;}
+  .skill-card p{margin:0; font-size:13.5px; color:var(--ink-soft);}
+
+  /* experience */
+  .timeline{border-top:1px solid var(--line);}
+  .job{
+    display:grid; grid-template-columns:200px 1fr; gap:36px;
+    padding:36px 0; border-bottom:1px solid var(--line);
+  }
+  @media (max-width:760px){ .job{grid-template-columns:1fr; gap:10px;} }
+  .job .when{font-family:var(--mono); font-size:12.5px; color:var(--steel); padding-top:4px;}
+  .job h3{font-size:19px;}
+  .job .org{font-family:var(--mono); font-size:13px; color:var(--signal); margin:6px 0 16px;}
+  .job ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:14.5px;}
+  .job ul li{margin-bottom:9px;}
+  .job ul li::marker{color:var(--signal);}
+
+  /* certifications */
+  .certs{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  @media (max-width:860px){ .certs{grid-template-columns:repeat(2,1fr);} }
+  .cert{background:var(--paper); padding:22px; font-size:13.5px;}
+  .cert .cert-id{font-family:var(--mono); font-size:11px; color:var(--signal); display:block; margin-bottom:10px;}
+  .cert h4{font-size:14.5px; margin-bottom:6px; line-height:1.35;}
+  .cert p{margin:0; color:var(--ink-soft); font-size:12.5px;}
+
+  /* contact */
+  .contact{background:var(--navy-deep); color:var(--on-dark);}
+  .contact .eyebrow{color:#4CD3A7;}
+  .contact .eyebrow::before{background:#4CD3A7;}
+  .contact h2{color:var(--on-dark);}
+  .contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; margin-top:44px;}
+  @media (max-width:860px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact p.lede{color:var(--on-dark-soft); max-width:44ch; font-size:15px;}
+  .contact-list{list-style:none; margin:32px 0 0; padding:0;}
+  .contact-list li{border-top:1px solid #223049; padding:16px 0;}
+  .contact-list li:last-child{border-bottom:1px solid #223049;}
+  .contact-list .k{font-family:var(--mono); font-size:11px; color:var(--on-dark-soft); text-transform:uppercase; letter-spacing:0.06em; display:block; margin-bottom:4px;}
+  .contact-list a{text-decoration:none; font-size:15px;}
+  .contact-list a:hover{color:#4CD3A7;}
+
+  form.contact-form{display:flex; flex-direction:column; gap:16px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:560px){ .form-row{grid-template-columns:1fr;} }
+  .field label{display:block; font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--on-dark-soft); margin-bottom:8px;}
+  .field input, .field textarea{
+    width:100%; background:var(--navy-mid); border:1px solid #253652; color:var(--on-dark);
+    padding:12px 14px; font-family:var(--body); font-size:14px; border-radius:2px;
+  }
+  .field input:focus, .field textarea:focus{border-color:#4CD3A7; outline:none;}
+  .field textarea{resize:vertical; min-height:110px;}
+  .submit-btn{
+    align-self:flex-start; background:#4CD3A7; color:var(--navy-deep); border:none;
+    font-family:var(--mono); font-size:13.5px; padding:13px 26px; border-radius:2px;
+    cursor:pointer; font-weight:500;
+  }
+  .submit-btn:hover{background:#6EE0BC;}
+
+  footer{
+    background:var(--navy-deep); color:var(--on-dark-soft);
+    border-top:1px solid #223049; padding:26px 0; font-size:12.5px;
+    font-family:var(--mono);
+  }
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  footer a{text-decoration:none; color:var(--on-dark-soft);}
+  footer a:hover{color:#4CD3A7;}
+</style>
 </head>
 <body>
 
-    <!-- Ambient Cursor Blob (Performance Tracked in JS) -->
-    <div id="cursor-blob" class="cursor-blob"></div>
+<header class="site">
+  <nav class="nav">
+    <a href="#home" class="mark">CN<span class="dot">.</span>architect</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList">☰</button>
+    <ul id="navList">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <!-- Navigation Header -->
-    <header id="header">
-        <div class="container nav-container">
-            <a href="#home" class="logo" id="nav-logo">CN.architect</a>
-            
-            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-            <nav>
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="#home" class="active" id="nav-link-home">Home</a></li>
-                    <li><a href="#about" id="nav-link-about">About</a></li>
-                    <li><a href="#skills" id="nav-link-skills">Skills</a></li>
-                    <li><a href="#experience" id="nav-link-experience">Experience</a></li>
-                    <li><a href="#certifications" id="nav-link-certs">Certifications</a></li>
-                    <li><a href="#contact" id="nav-link-contact">Contact</a></li>
-                </ul>
-            </nav>
+<section class="hero" id="home">
+  <div class="wrap hero-inner">
+    <div>
+      <p class="eyebrow">Dynamics 365 · Power Platform · Agentic AI</p>
+      <h1>Chandrakanth Narravula</h1>
+      <p class="role-line">Technical Lead &amp; Solutions Architect</p>
+      <p class="lede">I design and ship enterprise CRM systems on Microsoft Dynamics 365 and Power Platform, and increasingly, the autonomous AI agents that run alongside them. Seven-plus years across healthcare and insurance implementations, still hands-on in the code.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Let's talk →</a>
+        <a href="#experience" class="btn btn-ghost">View experience</a>
+      </div>
+    </div>
+
+    <div class="diagram" aria-hidden="true">
+      <div class="diagram-label"><span>agentic_crm.pipeline</span><span class="status">● live</span></div>
+      <div class="flow">
+        <div class="node"><span class="idx">01</span><div class="box"><b>Dataverse</b><span>Entity model · security schema</span></div></div>
+        <div class="connector"></div>
+        <div class="node"><span class="idx">02</span><div class="box"><b>Power Automate</b><span>Cloud flows · self-healing RPA</span></div></div>
+        <div class="connector"></div>
+        <div class="node"><span class="idx">03</span><div class="box"><b>Azure Functions</b><span>Serverless integration layer</span></div></div>
+        <div class="connector"></div>
+        <div class="node"><span class="idx">04</span><div class="box"><b>Copilot Studio</b><span>Agent orchestration · 35% throughput gain</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat"><b>7+</b><span>Years experience</span></div>
+    <div class="stat"><b>6</b><span>Engineers led</span></div>
+    <div class="stat"><b>35%</b><span>Process speed gain</span></div>
+    <div class="stat"><b>99.9%</b><span>System uptime</span></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>Bridging enterprise CRM with autonomous AI</h2>
+      <p style="margin-top:24px;">I work on the operational bottlenecks that healthcare and insurance organizations run into once their CRM stops being a system of record and has to become a system of action — <strong>claims routing, prior authorization, patient onboarding, SLA-driven service queues.</strong></p>
+      <p>Across engagements with Accenture, LTIMindtree, and Tech Mahindra, I've built that layer with Dynamics 365, custom C#/.NET plugins, JavaScript client APIs, and Power Platform automation — the parts that don't show up in a demo but decide whether the system holds up at 50,000 transactions a day.</p>
+      <p>My current focus is what comes after the workflow: orchestrating autonomous agents through Microsoft Copilot Studio and Azure OpenAI, so routine casework gets handled by a digital coworker instead of a queue.</p>
+    </div>
+    <div class="side-note">
+      Consulting backgrounds: Accenture, LTIMindtree, Tech Mahindra, NTT DATA Services.<br><br>
+      Domains: Healthcare, Insurance.<br><br>
+      Based in Bengaluru, India.
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background:var(--paper-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Technical expertise</p>
+        <h2>The stack, end to end</h2>
+      </div>
+    </div>
+
+    <div class="skills-filter" role="group" aria-label="Filter skills by category">
+      <button class="chip" aria-pressed="true" data-filter="all">All</button>
+      <button class="chip" aria-pressed="false" data-filter="d365">Dynamics 365 &amp; Dataverse</button>
+      <button class="chip" aria-pressed="false" data-filter="power">Power Platform</button>
+      <button class="chip" aria-pressed="false" data-filter="ai">AI &amp; Copilot Studio</button>
+      <button class="chip" aria-pressed="false" data-filter="cloud">Cloud &amp; DevOps</button>
+    </div>
+
+    <div class="skills-grid" id="skillsGrid">
+      <div class="skill-card" data-cat="d365">
+        <span class="tag">Dynamics 365</span>
+        <h4>D365 CE Customization</h4>
+        <p>End-to-end entity mapping, security schemas, form layouts, and business rules across sales and service modules.</p>
+      </div>
+      <div class="skill-card" data-cat="d365">
+        <span class="tag">Dynamics 365</span>
+        <h4>C#/.NET Plugins</h4>
+        <p>Event-driven plugins, custom workflow activities, and synchronous/asynchronous backend handlers.</p>
+      </div>
+      <div class="skill-card" data-cat="d365">
+        <span class="tag">Dynamics 365</span>
+        <h4>JavaScript Client API</h4>
+        <p>Front-end scripting web resources, UI responsiveness tuning, and asynchronous Web API calls.</p>
+      </div>
+      <div class="skill-card" data-cat="power">
+        <span class="tag">Power Platform</span>
+        <h4>Power Apps</h4>
+        <p>Responsive Canvas Apps for mobile and tablet, and Model-Driven Apps for back-office systems.</p>
+      </div>
+      <div class="skill-card" data-cat="power">
+        <span class="tag">Power Platform</span>
+        <h4>Power Automate</h4>
+        <p>Cloud flows, scheduled automation, and self-healing Desktop Flows/RPA scripts.</p>
+      </div>
+      <div class="skill-card" data-cat="ai">
+        <span class="tag">AI &amp; Copilot</span>
+        <h4>Microsoft Copilot Studio</h4>
+        <p>Enterprise AI copilots, generative dialog paths, and integrated corporate knowledge sources.</p>
+      </div>
+      <div class="skill-card" data-cat="ai">
+        <span class="tag">AI &amp; Copilot</span>
+        <h4>Agentic AI Development</h4>
+        <p>Autonomous agents executing multi-step business logic across D365 CE, Dataverse, and external platforms.</p>
+      </div>
+      <div class="skill-card" data-cat="ai">
+        <span class="tag">AI &amp; Copilot</span>
+        <h4>Azure OpenAI Integration</h4>
+        <p>Custom GPT models wired into business workflows to read, classify, and draft operational replies safely.</p>
+      </div>
+      <div class="skill-card" data-cat="cloud">
+        <span class="tag">Cloud &amp; DevOps</span>
+        <h4>Azure Services</h4>
+        <p>Serverless integrations using Azure Functions, Logic Apps, and Service Bus messaging.</p>
+      </div>
+      <div class="skill-card" data-cat="cloud">
+        <span class="tag">Cloud &amp; DevOps</span>
+        <h4>CI/CD Pipelines</h4>
+        <p>Azure DevOps pipelines using automated Power Platform Build Tools.</p>
+      </div>
+      <div class="skill-card" data-cat="cloud">
+        <span class="tag">Cloud &amp; DevOps</span>
+        <h4>SSIS &amp; KingswaySoft</h4>
+        <p>ETL packages moving high-volume clinical and insurance transaction records into Dataverse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Career</p>
+        <h2>Professional experience</h2>
+      </div>
+      <p>Seven years across four organizations, moving from CRM support to leading the architecture and delivery of enterprise-scale systems.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="job">
+        <div class="when">Feb 2026 — Present</div>
+        <div>
+          <h3>Packaged App Development Team Lead / Hands-on Technical Lead</h3>
+          <div class="org">Accenture · Bengaluru, India</div>
+          <ul>
+            <li>Lead technical sprint delivery and architecture for an enterprise-scale CRM system, improving on-time sprint velocity by 25% and reducing post-release defects by 30% while managing a team of 6 engineers and staying hands-on in core development.</li>
+            <li>Built high-complexity features on the Dynamics 365 Customer Service module, lifting ticket resolution throughput by 35% and cutting page load latency by 20% through custom SLA engines, entitlement configurations, and dashboards.</li>
+            <li>Cut database transaction overhead by 40% and removed client-side validation delays via custom C#/.NET plugins, workflow activities, and JavaScript Client API scripts.</li>
+            <li>Architected secure Azure Functions and Logic Apps integrations with legacy backend APIs, sustaining real-time sync for 50k+ daily transactions at 99.9% uptime.</li>
+          </ul>
         </div>
-    </header>
+      </div>
 
-    <!-- Main Content -->
-    <main>
-        
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="glow-orb orb-1"></div>
-            <div class="glow-orb orb-2"></div>
-            
-            <div class="container hero-grid">
-                <div class="hero-content">
-                    <span class="hero-badge">Next-Gen CRM & AI Solutions</span>
-                    <h1 class="hero-title">Chandrakanth <br><span class="gradient-text">Narravula</span></h1>
-                    <div class="hero-subtitle">
-                        I am a <span id="typing-text"></span><span class="typing-cursor"></span>
-                    </div>
-                    <p class="hero-desc">
-                        Hands-on Technical Lead & Solutions Architect with 7+ years of specialized experience designing, developing, and deploying enterprise-grade CRM transformations. Bridging the gap between Microsoft Dynamics 365, Power Platform, and Agentic AI.
-                    </p>
-                    <div class="hero-btns">
-                        <a href="#contact" class="btn btn-primary" id="hero-btn-connect">Let's Connect</a>
-                        <a href="#experience" class="btn btn-secondary" id="hero-btn-work">View My Work</a>
-                    </div>
-                </div>
-                
-                <div class="hero-visual">
-                    <!-- Glassmorphic Sandbox Code Preview -->
-                    <div class="code-window glass-panel">
-                        <div class="code-header">
-                            <span class="code-dot"></span>
-                            <span class="code-dot"></span>
-                            <span class="code-dot"></span>
-                            <span class="code-title">agentic_crm.cs</span>
-                        </div>
-                        <div class="code-body">
-                            <pre>
-<span class="code-purple">using</span> System;
-<span class="code-purple">using</span> Microsoft.Xrm.Sdk;
-<span class="code-purple">using</span> Azure.AI.OpenAI;
-
-<span class="code-purple">public class</span> <span class="code-green">AgenticAutomation</span> : <span class="code-green">IPlugin</span> 
-{
-    <span class="code-purple">public void</span> <span class="code-blue">Execute</span>(<span class="code-green">IServiceProvider</span> provider) 
-    {
-        <span class="code-red">// AI Multi-Agent Orchestration</span>
-        <span class="code-purple">var</span> copilot = <span class="code-purple">new</span> <span class="code-green">CopilotStudioClient</span>();
-        copilot.<span class="code-blue">DeployAgent</span>(
-            role: <span class="code-green">"CustomerServiceAgent"</span>,
-            skills: <span class="code-green">"SelfHealingWorkflows"</span>
-        );
-        
-        <span class="code-red">// Metrics Driven Automation</span>
-        copilot.<span class="code-blue">OptimizeEfficiency</span>(
-            gain: <span class="code-green">"35% Throughput"</span>
-        );
-    }
-}</pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section-padding">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-grid">
-                    <div class="about-content">
-                        <h3>Bridging Enterprise CRM with Autonomous AI</h3>
-                        <p class="about-text">
-                            I specialize in transforming complex business operational bottlenecks into streamlined, automated, and intelligent workflows for the Healthcare and Insurance sectors. 
-                            <br><br>
-                            Throughout my career with global consulting leaders like Accenture, LTIMindtree, and Tech Mahindra, I've designed and delivered robust custom architectures utilizing Dynamics 365, custom C#/.NET plugins, Javascript Client APIs, and Power Platform workflows. 
-                            <br><br>
-                            Currently, I am heavily focused on the future of AI-powered CRM — active in orchestrating autonomous AI agents, deploying custom copilots via Microsoft Copilot Studio, and securely integrating Azure OpenAI services to construct digital coworkers that deliver measurable efficiency gains.
-                        </p>
-                    </div>
-                    
-                    <div class="about-stats">
-                        <div class="stat-card glass-panel" id="stat-experience">
-                            <div class="stat-num">7+</div>
-                            <div class="stat-lbl">Years Experience</div>
-                        </div>
-                        <div class="stat-card glass-panel" id="stat-team">
-                            <div class="stat-num">6+</div>
-                            <div class="stat-lbl">Engineers Led</div>
-                        </div>
-                        <div class="stat-card glass-panel" id="stat-efficiency">
-                            <div class="stat-num">35%+</div>
-                            <div class="stat-lbl">Process Speed Gain</div>
-                        </div>
-                        <div class="stat-card glass-panel" id="stat-uptime">
-                            <div class="stat-num">99.9%</div>
-                            <div class="stat-lbl">System Uptime</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section-padding">
-            <div class="container">
-                <h2 class="section-title">Technical Expertise</h2>
-                
-                <!-- Filter Tabs -->
-                <div class="skills-tabs">
-                    <button class="tab-btn active" data-filter="all" id="tab-all">All Skills</button>
-                    <button class="tab-btn" data-filter="crm-d365" id="tab-crm">Dynamics 365 & Dataverse</button>
-                    <button class="tab-btn" data-filter="power-platform" id="tab-power">Power Platform</button>
-                    <button class="tab-btn" data-filter="ai-copilot" id="tab-ai">AI & Copilot Studio</button>
-                    <button class="tab-btn" data-filter="cloud-devops" id="tab-cloud">Cloud & DevOps</button>
-                </div>
-                
-                <!-- Skills Grid -->
-                <div class="skills-grid">
-                    <!-- D365 & Dataverse Skills -->
-                    <div class="skill-card glass-panel" data-category="crm-d365" id="skill-d365-ce">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-gears"></i></div>
-                        <h4>Dynamics 365 CE Customization</h4>
-                        <p>End-to-end entity mapping, custom security schemas, form layouts, business rules, and out-of-the-box adjustments.</p>
-                    </div>
-                    <div class="skill-card glass-panel" data-category="crm-d365" id="skill-net-plugins">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-code"></i></div>
-                        <h4>C#/.NET Plugins</h4>
-                        <p>Writing custom event-driven C# plugins, custom workflow activities, and complex synchronous/asynchronous backend handlers.</p>
-                    </div>
-                    <div class="skill-card glass-panel" data-category="crm-d365" id="skill-js-client">
-                        <div class="skill-icon-wrapper"><i class="fa-brands fa-js"></i></div>
-                        <h4>JavaScript Client API</h4>
-                        <p>Developing rich front-end scripting web resources, optimizing UI responsiveness, and invoking asynchronous Web API routines.</p>
-                    </div>
-
-                    <!-- Power Platform Skills -->
-                    <div class="skill-card glass-panel" data-category="power-platform" id="skill-powerapps">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                        <h4>Power Apps</h4>
-                        <p>Creating highly responsive Canvas Apps for mobile/tablet and robust Model-Driven Apps for complex back-office systems.</p>
-                    </div>
-                    <div class="skill-card glass-panel" data-category="power-platform" id="skill-automate">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-bezier-curve"></i></div>
-                        <h4>Power Automate</h4>
-                        <p>Designing sophisticated Cloud Flows, scheduled automation, and self-healing Desktop Flows/RPA scripts.</p>
-                    </div>
-
-                    <!-- AI & Copilot Skills -->
-                    <div class="skill-card glass-panel" data-category="ai-copilot" id="skill-copilot-studio">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-robot"></i></div>
-                        <h4>Microsoft Copilot Studio</h4>
-                        <p>Orchestrating enterprise AI copilots, structuring generative dialog paths, and integrating customized corporate knowledge pools.</p>
-                    </div>
-                    <div class="skill-card glass-panel" data-category="ai-copilot" id="skill-agentic-ai">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-brain"></i></div>
-                        <h4>Agentic AI Development</h4>
-                        <p>Constructing autonomous agents that execute multi-step business logic across D365 CE, Dataverse, and external platforms.</p>
-                    </div>
-                    <div class="skill-card glass-panel" data-category="ai-copilot" id="skill-azure-openai">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-microchip"></i></div>
-                        <h4>Azure OpenAI Integration</h4>
-                        <p>Connecting customized GPT models to business workflows to read, categorize, and draft operational replies safely.</p>
-                    </div>
-
-                    <!-- Cloud & DevOps Skills -->
-                    <div class="skill-card glass-panel" data-category="cloud-devops" id="skill-azure-cloud">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-cloud"></i></div>
-                        <h4>Azure Services</h4>
-                        <p>Architecting serverless integrations using secure Azure Functions, Azure Logic Apps, and Azure Service Bus messaging hubs.</p>
-                    </div>
-                    <div class="skill-card glass-panel" data-category="cloud-devops" id="skill-devops-cicd">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-network-wired"></i></div>
-                        <h4>CI/CD Pipelines</h4>
-                        <p>Structuring continuous integration/deployment flows in Azure DevOps using automated Power Platform Build Tools.</p>
-                    </div>
-                    <div class="skill-card glass-panel" data-category="cloud-devops" id="skill-ssis-data">
-                        <div class="skill-icon-wrapper"><i class="fa-solid fa-database"></i></div>
-                        <h4>SSIS & KingswaySoft</h4>
-                        <p>Constructing complex ETL packages to extract and load high-volume clinical and insurance transaction records into Dataverse.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Timeline Section -->
-        <section id="experience" class="section-padding">
-            <div class="container">
-                <h2 class="section-title">Professional Experience</h2>
-                
-                <div class="timeline">
-                    
-                    <!-- Timeline Item 1: Accenture -->
-                    <div class="timeline-item">
-                        <div class="timeline-badge"></div>
-                        <div class="timeline-card glass-panel" id="exp-accenture">
-                            <span class="timeline-date">Feb 2026 – Present</span>
-                            <h3>Packaged App Development Team Lead / Hands-on Technical Lead</h3>
-                            <div class="timeline-company">Accenture • Bengaluru, India</div>
-                            <ul class="timeline-bullets">
-                                <li>Led technical sprint delivery and architecture for an enterprise-scale CRM system, improving on-time sprint velocity by 25% and reducing post-release defect rates by 30% by managing a team of 6 engineers while remaining 100% hands-on in core development.</li>
-                                <li>Engineered high-complexity features on the Dynamics 365 Customer Service module, boosting customer support ticket resolution throughput by 35% and cutting average page load latency by 20% through hands-on design of custom SLA engines, entitlement configurations, and interactive dashboards.</li>
-                                <li>Optimized business logic execution and user interface responsiveness, cutting database transaction overhead by 40% and eliminating client-side validation delays by executing custom C#/.NET plugins, custom workflow activities, and JavaScript Client API scripts.</li>
-                                <li>Extended enterprise CRM capabilities and securely integrated legacy backend APIs, achieving real-time synchronization for 50k+ daily transactions with 99.9% uptime by architecting and implementing secure Azure Functions and Azure Logic Apps.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Timeline Item 2: LTIMindtree -->
-                    <div class="timeline-item">
-                        <div class="timeline-badge"></div>
-                        <div class="timeline-card glass-panel" id="exp-lti">
-                            <span class="timeline-date">Jan 2024 – Feb 2026</span>
-                            <h3>Senior Engineer</h3>
-                            <div class="timeline-company">LTIMindtree • Bengaluru, India</div>
-                            <ul class="timeline-bullets">
-                                <li>Customized and architected Microsoft Dynamics 365 CE solutions for prominent Healthcare clients, improving system efficiency by 25% and enhancing patient data accessibility by developing custom extensions and security schemas.</li>
-                                <li>Designed and implemented custom C#/.NET plugins and JavaScript Client API scripts, reducing database execution time by 30% and optimizing CRM UI responsiveness to improve clinical user experience.</li>
-                                <li>Streamlined patient onboarding, EHR integrations, and automated healthcare prior authorization workflows, slashing processing times by 30% by developing enterprise Model-Driven and Canvas Power Apps combined with Power Automate flows.</li>
-                                <li>Secured seamless data synchronization for 100K+ patient records and eliminated manual data entries by 95% by collaborating with cross-functional teams to integrate legacy electronic health record (EHR) systems with Dataverse using SSIS KingswaySoft.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Timeline Item 3: Tech Mahindra -->
-                    <div class="timeline-item">
-                        <div class="timeline-badge"></div>
-                        <div class="timeline-card glass-panel" id="exp-techm">
-                            <span class="timeline-date">Jul 2022 – Jan 2024</span>
-                            <h3>Senior Software Engineer</h3>
-                            <div class="timeline-company">Tech Mahindra • Bengaluru, India</div>
-                            <ul class="timeline-bullets">
-                                <li>Engineered end-to-end Dynamics 365 CE solutions tailored for major Insurance clients, optimizing the policyholder lifecycle and reducing claims management bottlenecks by 20% through custom entity modeling.</li>
-                                <li>Automated core underwriting procedures and minimized manual data entry by 35% by authoring custom plugins, custom workflow activities, and complex workflows in C# and .NET Framework.</li>
-                                <li>Ensured high-quality, bug-free delivery across rapid bi-weekly sprints by partnering with business analysts and stakeholders to define rigorous technical specifications and conducting code validation.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Item 4: NTT DATA Services -->
-                    <div class="timeline-item">
-                        <div class="timeline-badge"></div>
-                        <div class="timeline-card glass-panel" id="exp-ntt">
-                            <span class="timeline-date">Jul 2019 – Jul 2022</span>
-                            <h3>Information Technology Analyst</h3>
-                            <div class="timeline-company">NTT DATA Services • Chennai, India</div>
-                            <ul class="timeline-bullets">
-                                <li>Maintained an average uptime of 99.8% across critical Microsoft Dynamics CRM environments by performing proactive performance tuning, database index optimizations, and routine system health checks.</li>
-                                <li>Configured out-of-the-box and custom CRM modules (Sales and Customer Service) to support 500+ internal users by modifying form layouts, security roles, and business rules to meet evolving operational needs.</li>
-                                <li>Resolved 150+ high-severity application bugs and enhanced system reliability by gaining deep hands-on expertise in client-side scripting (JavaScript), C# .NET development, and custom Web Resources.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-
-        <!-- Certifications Section -->
-        <section id="certifications" class="section-padding">
-            <div class="container">
-                <h2 class="section-title">Certifications</h2>
-                
-                <div class="certs-grid">
-                    <!-- Cert 1 -->
-                    <div class="cert-card glass-panel" id="cert-agentic-ai">
-                        <div class="cert-badge-wrapper"><i class="fa-solid fa-graduation-cap"></i></div>
-                        <h4>Reinvention with Agentic AI</h4>
-                        <div class="cert-issuer">Specialized Agentic AI Development</div>
-                    </div>
-                    <!-- Cert 2 -->
-                    <div class="cert-card glass-panel" id="cert-ai-tools">
-                        <div class="cert-badge-wrapper"><i class="fa-solid fa-laptop-code"></i></div>
-                        <h4>AI Tools Workshop</h4>
-                        <div class="cert-issuer">Generative AI & LLM Integrations</div>
-                    </div>
-                    <!-- Cert 3 -->
-                    <div class="cert-card glass-panel" id="cert-pl900">
-                        <div class="cert-badge-wrapper"><i class="fa-solid fa-award"></i></div>
-                        <h4>Microsoft Certified: Power Platform Fundamentals</h4>
-                        <div class="cert-issuer">Microsoft (PL-900)</div>
-                    </div>
-                    <!-- Cert 4 -->
-                    <div class="cert-card glass-panel" id="cert-mb910">
-                        <div class="cert-badge-wrapper"><i class="fa-solid fa-award"></i></div>
-                        <h4>Microsoft Certified: Dynamics 365 Fundamentals</h4>
-                        <div class="cert-issuer">Microsoft (MB-910)</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section-padding">
-            <div class="container contact-grid">
-                
-                <div class="contact-info">
-                    <div>
-                        <h3>Get In Touch</h3>
-                        <p class="contact-desc">Have an upcoming enterprise CRM transformation project, need help developing customized AI workflows, or looking to augment your tech lead capabilities? Reach out today.</p>
-                    </div>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method" id="contact-email">
-                            <div class="contact-method-icon"><i class="fa-solid fa-envelope"></i></div>
-                            <div class="contact-method-detail">
-                                <h4>Email</h4>
-                                <p>chandrakanth.narravula25@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-method" id="contact-phone">
-                            <div class="contact-method-icon"><i class="fa-solid fa-phone"></i></div>
-                            <div class="contact-method-detail">
-                                <h4>Phone / Mobile</h4>
-                                <p>+91 6302071591</p>
-                            </div>
-                        </div>
-                        <div class="contact-method" id="contact-location">
-                            <div class="contact-method-icon"><i class="fa-solid fa-location-dot"></i></div>
-                            <div class="contact-method-detail">
-                                <h4>Location</h4>
-                                <p>Bengaluru, India</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Contact Form glass-panel -->
-                <form id="contact-form" class="contact-form glass-panel">
-                    <div class="form-group">
-                        <label for="form-name">Name</label>
-                        <input type="text" id="form-name" placeholder="John Doe" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="form-email">Email</label>
-                        <input type="email" id="form-email" placeholder="john@example.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="form-subject">Subject</label>
-                        <input type="text" id="form-subject" placeholder="Project Inquiry" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="form-message">Message</label>
-                        <textarea id="form-message" rows="5" placeholder="How can I help you today?" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary" id="form-submit-btn">Send Message</button>
-                </form>
-                
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <div class="footer-socials">
-                <a href="https://www.linkedin.com/in/chandrakanth-narravula" target="_blank" class="social-link" aria-label="LinkedIn Profile" id="social-linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="mailto:chandrakanth.narravula25@gmail.com" class="social-link" aria-label="Email Me" id="social-email"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-            <p class="footer-copy">© 2026 Chandrakanth Narravula. Built with premium custom code & structural design principles.</p>
+      <div class="job">
+        <div class="when">Jan 2024 — Feb 2026</div>
+        <div>
+          <h3>Senior Engineer</h3>
+          <div class="org">LTIMindtree · Bengaluru, India</div>
+          <ul>
+            <li>Customized and architected Dynamics 365 CE solutions for healthcare clients, improving system efficiency by 25% and patient data accessibility through custom extensions and security schemas.</li>
+            <li>Built custom C#/.NET plugins and JavaScript Client API scripts, cutting database execution time by 30% and improving clinical user experience.</li>
+            <li>Streamlined patient onboarding, EHR integration, and prior authorization workflows, cutting processing time by 30% with Model-Driven and Canvas Power Apps plus Power Automate flows.</li>
+            <li>Synced 100K+ patient records and cut manual data entry by 95%, integrating legacy EHR systems with Dataverse via SSIS KingswaySoft.</li>
+          </ul>
         </div>
-    </footer>
+      </div>
 
-    <!-- Core Logic -->
-    <script src="app.js"></script>
+      <div class="job">
+        <div class="when">Jul 2022 — Jan 2024</div>
+        <div>
+          <h3>Senior Software Engineer</h3>
+          <div class="org">Tech Mahindra · Bengaluru, India</div>
+          <ul>
+            <li>Engineered end-to-end Dynamics 365 CE solutions for major insurance clients, optimizing the policyholder lifecycle and cutting claims bottlenecks by 20% through custom entity modeling.</li>
+            <li>Automated core underwriting procedures and cut manual data entry by 35% through custom plugins, workflow activities, and C#/.NET Framework logic.</li>
+            <li>Held bug-free delivery across bi-weekly sprints, working with analysts and stakeholders on technical specs and code validation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">Jul 2019 — Jul 2022</div>
+        <div>
+          <h3>Information Technology Analyst</h3>
+          <div class="org">NTT DATA Services · Chennai, India</div>
+          <ul>
+            <li>Maintained 99.8% average uptime across critical Dynamics CRM environments through proactive performance tuning and database index optimization.</li>
+            <li>Configured Sales and Customer Service modules for 500+ internal users, adjusting form layouts, security roles, and business rules.</li>
+            <li>Resolved 150+ high-severity bugs, building deep hands-on expertise in JavaScript, C#/.NET, and custom Web Resources.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications" style="background:var(--paper-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Certifications</p>
+        <h2>Credentials &amp; training</h2>
+      </div>
+    </div>
+    <div class="certs">
+      <div class="cert">
+        <span class="cert-id">Specialized</span>
+        <h4>Reinvention with Agentic AI</h4>
+        <p>Agentic AI development</p>
+      </div>
+      <div class="cert">
+        <span class="cert-id">Workshop</span>
+        <h4>AI Tools Workshop</h4>
+        <p>Generative AI &amp; LLM integrations</p>
+      </div>
+      <div class="cert">
+        <span class="cert-id">PL-900</span>
+        <h4>Microsoft Certified: Power Platform Fundamentals</h4>
+        <p>Microsoft</p>
+      </div>
+      <div class="cert">
+        <span class="cert-id">MB-910</span>
+        <h4>Microsoft Certified: Dynamics 365 Fundamentals</h4>
+        <p>Microsoft</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2 style="margin-top:14px;">Have a CRM transformation in mind?</h2>
+    <p class="lede" style="margin-top:16px;">Enterprise CRM builds, Power Platform automation, or agentic AI workflows — reach out and let's talk through what you're trying to solve.</p>
+
+    <div class="contact-grid">
+      <div>
+        <ul class="contact-list">
+          <li><span class="k">Email</span><a href="mailto:chandrakanth.narravula25@gmail.com">chandrakanth.narravula25@gmail.com</a></li>
+          <li><span class="k">Phone</span><a href="tel:+916302071591">+91 63020 71591</a></li>
+          <li><span class="k">Location</span><span>Bengaluru, India</span></li>
+          <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/chandrakanth-narravula" target="_blank" rel="noopener">linkedin.com/in/chandrakanth-narravula</a></li>
+        </ul>
+      </div>
+
+      <form class="contact-form" onsubmit="return false;">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input id="subject" type="text" name="subject">
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="submit-btn" type="submit">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Chandrakanth Narravula.</span>
+    <a href="mailto:chandrakanth.narravula25@gmail.com">chandrakanth.narravula25@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  var toggle = document.getElementById('navToggle');
+  var list = document.getElementById('navList');
+  toggle.addEventListener('click', function(){
+    var open = list.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  list.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      list.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // skills filter
+  var chips = document.querySelectorAll('.chip');
+  var cards = document.querySelectorAll('.skill-card');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+      chip.setAttribute('aria-pressed','true');
+      var f = chip.getAttribute('data-filter');
+      cards.forEach(function(card){
+        if(f === 'all' || card.getAttribute('data-cat') === f){
+          card.classList.remove('hide');
+        } else {
+          card.classList.add('hide');
+        }
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
