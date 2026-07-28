@@ -334,6 +334,10 @@
     cursor:pointer; font-weight:500;
   }
   .submit-btn:hover{background:#6EE0BC;}
+  .form-status{
+    min-height:1.4em; margin:0; color:#4CD3A7; font-size:13.5px;
+    font-family:var(--mono);
+  }
 
   footer{
     background:var(--navy-deep); color:var(--on-dark-soft);
@@ -610,7 +614,7 @@
         </ul>
       </div>
 
-      <form class="contact-form" onsubmit="return false;">
+      <form class="contact-form" id="contactForm">
         <div class="form-row">
           <div class="field">
             <label for="name">Name</label>
@@ -630,6 +634,7 @@
           <textarea id="message" name="message" required></textarea>
         </div>
         <button class="submit-btn" type="submit">Send message</button>
+        <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>
       </form>
     </div>
   </div>
@@ -646,16 +651,18 @@
   // mobile nav toggle
   var toggle = document.getElementById('navToggle');
   var list = document.getElementById('navList');
-  toggle.addEventListener('click', function(){
-    var open = list.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-  });
-  list.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      list.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
+  if (toggle && list) {
+    toggle.addEventListener('click', function(){
+      var open = list.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
     });
-  });
+    list.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        list.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 
   // skills filter
   var chips = document.querySelectorAll('.chip');
@@ -674,6 +681,22 @@
       });
     });
   });
+
+  // contact form feedback
+  var contactForm = document.getElementById('contactForm');
+  var contactStatus = document.getElementById('contactStatus');
+  if (contactForm && contactStatus) {
+    contactForm.addEventListener('submit', function(event){
+      event.preventDefault();
+      if (!contactForm.checkValidity()) {
+        contactStatus.textContent = 'Please complete the required fields before sending.';
+        return;
+      }
+
+      contactForm.reset();
+      contactStatus.textContent = 'Thanks — your message is ready to send. Please email Chandrakanth directly if you need a faster reply.';
+    });
+  }
 </script>
 
 </body>
